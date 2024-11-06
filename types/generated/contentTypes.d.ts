@@ -690,6 +690,11 @@ export interface ApiGrupoGrupo extends Schema.CollectionType {
   };
   attributes: {
     nombre: Attribute.String;
+    peopleId: Attribute.Relation<
+      'api::grupo.grupo',
+      'oneToMany',
+      'api::person.person'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -714,6 +719,7 @@ export interface ApiPersonPerson extends Schema.CollectionType {
     singularName: 'person';
     pluralName: 'people';
     displayName: 'People';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -724,6 +730,11 @@ export interface ApiPersonPerson extends Schema.CollectionType {
     email: Attribute.Email;
     fecha_nacimiento: Attribute.Date;
     genero: Attribute.Enumeration<['male', 'female', 'other']>;
+    grupoId: Attribute.Relation<
+      'api::person.person',
+      'manyToOne',
+      'api::grupo.grupo'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
