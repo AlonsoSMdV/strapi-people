@@ -683,12 +683,13 @@ export interface ApiGrupoGrupo extends Schema.CollectionType {
     singularName: 'grupo';
     pluralName: 'grupos';
     displayName: 'Grupo';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Nombre: Attribute.String;
+    nombre: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -707,31 +708,33 @@ export interface ApiGrupoGrupo extends Schema.CollectionType {
   };
 }
 
-export interface ApiUsuarioUsuario extends Schema.CollectionType {
-  collectionName: 'usuarios';
+export interface ApiPersonPerson extends Schema.CollectionType {
+  collectionName: 'people';
   info: {
-    singularName: 'usuario';
-    pluralName: 'usuarios';
-    displayName: 'Usuarios';
+    singularName: 'person';
+    pluralName: 'people';
+    displayName: 'People';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Nombre: Attribute.String;
-    Apellido: Attribute.String;
-    Genero: Attribute.String;
+    nombre: Attribute.String;
+    apellido: Attribute.String;
+    email: Attribute.Email;
+    fecha_nacimiento: Attribute.Date;
+    genero: Attribute.Enumeration<['male', 'female', 'other']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::usuario.usuario',
+      'api::person.person',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::usuario.usuario',
+      'api::person.person',
       'oneToOne',
       'admin::user'
     > &
@@ -756,7 +759,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::grupo.grupo': ApiGrupoGrupo;
-      'api::usuario.usuario': ApiUsuarioUsuario;
+      'api::person.person': ApiPersonPerson;
     }
   }
 }
