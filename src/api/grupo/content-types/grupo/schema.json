@@ -12,10 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "nombre": {
+    "name": {
       "type": "string"
     },
-    "peopleId": {
+    "people": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::person.person",
