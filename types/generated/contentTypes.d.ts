@@ -374,8 +374,8 @@ export interface ApiGrupoGrupo extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    nombre: Attribute.String;
-    peopleId: Attribute.Relation<
+    name: Attribute.String;
+    people: Attribute.Relation<
       'api::grupo.grupo',
       'oneToMany',
       'api::person.person'
@@ -415,15 +415,15 @@ export interface ApiPersonPerson extends Schema.CollectionType {
     email: Attribute.Email;
     fecha_nacimiento: Attribute.Date;
     genero: Attribute.Enumeration<['male', 'female', 'other']>;
-    grupoId: Attribute.Relation<
-      'api::person.person',
-      'manyToOne',
-      'api::grupo.grupo'
-    >;
     user: Attribute.Relation<
       'api::person.person',
       'oneToOne',
       'plugin::users-permissions.user'
+    >;
+    grupoId: Attribute.Relation<
+      'api::person.person',
+      'manyToOne',
+      'api::grupo.grupo'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
