@@ -37,6 +37,12 @@
       "relation": "manyToOne",
       "target": "api::grupo.grupo",
       "inversedBy": "peopleId"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "person"
     }
   }
 }
