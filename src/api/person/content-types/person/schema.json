@@ -12,19 +12,16 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "nombre": {
+    "name": {
       "type": "string"
     },
-    "apellido": {
+    "surname": {
       "type": "string"
     },
-    "email": {
-      "type": "email"
-    },
-    "fecha_nacimiento": {
+    "birthdate": {
       "type": "date"
     },
-    "genero": {
+    "gender": {
       "type": "enumeration",
       "enum": [
         "male",
@@ -38,7 +35,7 @@
       "target": "plugin::users-permissions.user",
       "mappedBy": "person"
     },
-    "grupoId": {
+    "group": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::grupo.grupo",

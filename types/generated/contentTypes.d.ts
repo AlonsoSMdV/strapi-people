@@ -403,7 +403,7 @@ export interface ApiPersonPerson extends Schema.CollectionType {
   info: {
     singularName: 'person';
     pluralName: 'people';
-    displayName: 'People';
+    displayName: 'Person';
     description: '';
   };
   options: {

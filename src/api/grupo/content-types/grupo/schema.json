@@ -19,7 +19,7 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::person.person",
-      "mappedBy": "grupoId"
+      "mappedBy": "group"
     }
   }
 }
