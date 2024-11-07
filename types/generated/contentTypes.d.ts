@@ -374,6 +374,11 @@ export interface ApiGroupGroup extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
+    people: Attribute.Relation<
+      'api::group.group',
+      'oneToMany',
+      'api::person.person'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -412,6 +417,11 @@ export interface ApiPersonPerson extends Schema.CollectionType {
       'api::person.person',
       'oneToOne',
       'plugin::users-permissions.user'
+    >;
+    group: Attribute.Relation<
+      'api::person.person',
+      'manyToOne',
+      'api::group.group'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
