@@ -410,17 +410,16 @@ export interface ApiPersonPerson extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    nombre: Attribute.String;
-    apellido: Attribute.String;
-    email: Attribute.Email;
-    fecha_nacimiento: Attribute.Date;
-    genero: Attribute.Enumeration<['male', 'female', 'other']>;
+    name: Attribute.String;
+    surname: Attribute.String;
+    birthdate: Attribute.Date;
+    gender: Attribute.Enumeration<['male', 'female', 'other']>;
     user: Attribute.Relation<
       'api::person.person',
       'oneToOne',
       'plugin::users-permissions.user'
     >;
-    grupoId: Attribute.Relation<
+    group: Attribute.Relation<
       'api::person.person',
       'manyToOne',
       'api::grupo.grupo'
