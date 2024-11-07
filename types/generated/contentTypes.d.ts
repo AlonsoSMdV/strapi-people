@@ -362,42 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiGrupoGrupo extends Schema.CollectionType {
-  collectionName: 'grupos';
-  info: {
-    singularName: 'grupo';
-    pluralName: 'grupos';
-    displayName: 'Grupo';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String;
-    people: Attribute.Relation<
-      'api::grupo.grupo',
-      'oneToMany',
-      'api::person.person'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::grupo.grupo',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::grupo.grupo',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiPersonPerson extends Schema.CollectionType {
   collectionName: 'people';
   info: {
@@ -418,11 +382,6 @@ export interface ApiPersonPerson extends Schema.CollectionType {
       'api::person.person',
       'oneToOne',
       'plugin::users-permissions.user'
-    >;
-    group: Attribute.Relation<
-      'api::person.person',
-      'manyToOne',
-      'api::grupo.grupo'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -771,7 +730,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::grupo.grupo': ApiGrupoGrupo;
       'api::person.person': ApiPersonPerson;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
